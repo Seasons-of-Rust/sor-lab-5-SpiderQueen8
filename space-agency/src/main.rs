@@ -54,7 +54,7 @@ fn candidate_score(c: &Candidate) -> u32 {
 fn ranking(candidates: Vec<Candidate>) -> Vec<Candidate> {
     let mut candidates = candidates;
 
-    candidates.sort_by(|a, b| candidate_score(b).cmp(&candidate_score(a)));
+    candidates.sort_by_key(|b| std::cmp::Reverse(candidate_score(b)));
 
     candidates
 }
